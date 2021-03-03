@@ -80,4 +80,23 @@ function updateChart() {
        
           console.log(riskData);
 
-}
+  // append text label for y axis "lacks healthcare %"
+      graphData.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 0 - 50)
+        .attr("x", 0 -250)
+        .attr("dy", "1em")
+        .attr("class", "axisText")
+        .text("Lacks Healthcare (%)");
+    let updatedWidth = w/3.5;
+    let updatedHeight = h + 28 + margin.top;
+  // append text label for x axis concerning poverty %
+      graphData.append("text")
+        .attr("transform", `translate(${updatedWidth}, ${updatedHeight})`)
+        .attr("class", "axisText")
+        .text("In Poverty (%)");
+
+  });
+  }
+  // call update graph function
+  updateChart();
