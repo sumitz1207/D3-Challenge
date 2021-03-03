@@ -19,4 +19,23 @@ function updateChart() {
   let graphData = wrapper.append("g")
       .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
+  //import data using csv d3 function
+  d3.csv("assets/data/data.csv")
+      .then(function(riskData){
+  
+  //data grabbed from the csv file and set
+      riskData.forEach(function(data) {
+          data.healthcare = +data.healthcare;
+          data.poverty = +data.poverty;
+
+      });
+  //Create scales for X and Y
+      let xl = d3.scaleLinear()
+          .domain([8.5, d3.max(riskData, d => d.poverty)])
+          .range([0, w]);
+  
+      let yl = d3.scaleLinear()
+          .domain([3.5, d3.max(riskData, d => d.healthcare)])
+          .range([h, 0]);
+  
 }
