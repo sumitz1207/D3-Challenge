@@ -38,4 +38,17 @@ function updateChart() {
           .domain([3.5, d3.max(riskData, d => d.healthcare)])
           .range([h, 0]);
   
+
+  //the x and y axis formatting
+      let xAxis = d3.axisBottom(xl);
+      let yAxis = d3.axisLeft(yl);
+  
+  //graph data appends the x and y axes
+      graphData.append("g")
+      .attr("transform", `translate(0, ${h})`)
+      .call(xAxis);
+  
+      graphData.append("g")
+      .call(yAxis);
+
 }
