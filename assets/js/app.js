@@ -51,4 +51,33 @@ function updateChart() {
       graphData.append("g")
       .call(yAxis);
 
+
+  //create each of the state bubbles for the graph
+      let chartBubbles = graphData.selectAll("circle")
+          .data(riskData)
+          .enter()
+          .append("circle")
+          .attr("cx", d => xl(d.poverty))
+          .attr("cy", d => yl(d.healthcare))
+          .attr("r", 10)
+          .attr("opacity", ".5")
+          .attr("fill", "salmon")
+          .attr("stroke-width", "2")
+          .attr("stroke", "darkred");
+  
+          graphData.select("g")
+          .selectAll("circle")
+          .data(riskData)
+          .enter()
+          .append("text")
+          .text(d => d.abbr)
+          .attr("x", d => xl(d.poverty))
+          .attr("y", d => yl(d.healthcare))
+          .attr("dy",-395)
+          .attr("text-anchor", "middle")
+          .attr("font-size", "12px")
+          .attr("fill", "black");
+       
+          console.log(riskData);
+
 }
