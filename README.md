@@ -1,2 +1,3 @@
 # D3-Challenge
-Note to grader: please delay grading if possible. I have not completed the assignment yet.
+
+GitHub Pages URL: https://sumitz1207.github.io
